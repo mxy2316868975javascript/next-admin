@@ -22,6 +22,7 @@ const CORS_HEADERS = [
   ];
 
 const nextConfig = {
+    distDir: 'out',
     env: {
       "JWT_SECRET": "next-admin",
       "BASE_API_URL": "/api"
