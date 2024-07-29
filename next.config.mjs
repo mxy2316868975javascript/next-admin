@@ -23,6 +23,13 @@ const CORS_HEADERS = [
 
 const nextConfig = {
     distDir: 'out',
+      webpack(config, { isServer }) {
+    // 仅在生产环境下进行优化
+    if (!isServer) {
+      config.optimization.splitChunks.maxSize = 240000; // 设置拆分块的最大大小
+    }
+    return config;
+  },
     env: {
       "JWT_SECRET": "next-admin",
       "BASE_API_URL": "/api"
